@@ -1,13 +1,33 @@
-import { View, TextInput } from "react-native";
+import React from "react";
+import { SafeAreaView, StyleSheet, TextInput } from "react-native";
 
-export default function Login({ navigation }) {
+export default function UselessTextInput() {
+  const [text, onChangeText] = React.useState("Useless Text");
+  const [number, onChangeNumber] = React.useState(null);
+
   return (
-    <View>
+    <SafeAreaView>
       <TextInput
-        // style={styles.input}
-        // onChangeText={onChangeText}
-        // value={text}
+        style={styles.input}
+        onChangeText={onChangeText}
+        value={text}
       />
-    </View>
+      <TextInput
+        style={styles.input}
+        onChangeText={onChangeNumber}
+        value={number}
+        placeholder="useless placeholder"
+        keyboardType="numeric"
+      />
+    </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
+});
